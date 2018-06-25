@@ -13,12 +13,15 @@ module MainLoop =
         initKeyboardPress ()
     
         Thread.Sleep 5000 
+        printfn "%A !!!!!" (getLastKeyboardPresses () )
+        Thread.Sleep 5000 
+
 
         killKeyboardPress ()
 
 
         Console.WriteLine( "blah" ) 
-        printfn "%A" (getLastKeyboardPress 4)
+        printfn "%A !!!!!" (getLastKeyboardPresses () )
 
 
 
