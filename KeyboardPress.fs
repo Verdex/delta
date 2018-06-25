@@ -14,7 +14,7 @@ module KeyboardPress =
 
     let private shouldShutdown () = lock flagLocker ( fun () -> shutdownFlag )
 
-    let private recordKeyPressAndTrim keyPress = 
+    let private recordKeyPress keyPress = 
         lock listLocker ( fun () -> 
                 keyPressList <- keyPress :: keyPressList
             )
@@ -23,7 +23,7 @@ module KeyboardPress =
         let thread = new Thread( fun () -> 
             while shouldShutdown() = false do
                 let c = Console.ReadKey( true )
-                recordKeyPressAndTrim (c.KeyChar, DateTime.Now)
+                recordKeyPress (c.KeyChar, DateTime.Now)
             )
         thread.Start()
 
