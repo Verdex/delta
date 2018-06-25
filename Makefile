@@ -2,7 +2,7 @@
 cc = fsharpc
 
 all : 
-	$(cc) ConsoleUtil.fs  MainLoop.fs
+	$(cc) KeyboardPress.fs  MainLoop.fs
 
 clean :
 	rm -rf *.exe
