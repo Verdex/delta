@@ -8,20 +8,18 @@ module MainLoop =
     open System
     open System.Threading
     open KeyboardPress
+    open ConsoleWriter
 
     let main = 
-        initKeyboardPress ()
-    
-        Thread.Sleep 5000 
-        printfn "%A !!!!!" (getLastKeyboardPresses () )
-        Thread.Sleep 5000 
 
 
-        killKeyboardPress ()
+        clearConsole ()
+         
+        writeToConsole [( { Char = 'w' ; ForeColor = ConsoleColor.Blue ; BackColor = ConsoleColor.Red }, 
+                          { X = 3; Y = 4 } ) ; 
+                         ( { Char = 'h' ; ForeColor = ConsoleColor.Green ; BackColor =  ConsoleColor.Black }, 
+                           { X = 5 ; Y = 10 } )]
 
-
-        Console.WriteLine( "blah" ) 
-        printfn "%A !!!!!" (getLastKeyboardPresses () )
 
 
 
